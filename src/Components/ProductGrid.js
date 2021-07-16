@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from "./Grid";
+import Card from "./Card";
 import axios from "axios";
 
 export default function ProductGrid() {
@@ -22,7 +22,7 @@ export default function ProductGrid() {
   return (
     <div>
       {products.map((product) => (
-        <Grid key={product.id} name={product.name} />
+        <Card key={product.id} name={product.name} />
       ))}
     </div>
   );
