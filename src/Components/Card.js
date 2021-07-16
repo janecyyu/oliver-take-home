@@ -40,7 +40,7 @@ export default function ComplexGrid({ name }) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Grid container spacing={2} direction="row">
+        <Grid container spacing={2}>
           <Grid item>
             <Grid className={classes.image}>
               <img
