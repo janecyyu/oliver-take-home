@@ -10,9 +10,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     margin: "auto",
-    maxWidth: 200,
+    marginBottom: 20,
+    maxWidth: 400,
   },
   image: {
     width: 128,
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ComplexGrid(imgURL, name) {
+export default function ComplexGrid({ imgURL, name }) {
   const classes = useStyles();
 
   return (
@@ -37,8 +38,8 @@ export default function ComplexGrid(imgURL, name) {
             <ButtonBase className={classes.image}>
               <img
                 className={classes.img}
-                alt="complex"
-                src="/static/images/grid/complex.jpg"
+                alt={name}
+                src="https://icon-library.com/images/product-icon-png/product-icon-png-1.jpg"
               />
             </ButtonBase>
           </Grid>
@@ -46,23 +47,17 @@ export default function ComplexGrid(imgURL, name) {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
+                  {name}
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item direction="row">
                 <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  Remove
+                  View Reviews
+                </Typography>
+                <Typography variant="body2" style={{ cursor: "pointer" }}>
+                  Write A Review
                 </Typography>
               </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
             </Grid>
           </Grid>
         </Grid>

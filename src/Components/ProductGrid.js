@@ -22,7 +22,7 @@ export default function ProductGrid() {
   return (
     <div>
       {products.map((product) => (
-        <Grid key={product.id} />
+        <Grid key={product.id} name={product.name} />
       ))}
     </div>
   );
