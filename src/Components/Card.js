@@ -66,14 +66,14 @@ export default function ComplexGrid({ name }) {
                     color="primary"
                     className={classes.btn}
                   >
-                    View Reviews
+                    Read Reviews 👀
                   </Button>
                   <Button
                     variant="contained"
                     color="secondary"
                     className={classes.btn}
                   >
-                    Write A Review
+                    Write A Review ✍️
                   </Button>
                 </Typography>
               </Grid>

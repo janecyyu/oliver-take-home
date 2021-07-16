@@ -3,7 +3,7 @@ import ProductGrid from "./ProductGrid";
 
 export default function Home() {
   return (
-    <div>
+    <div className="Background">
       <ProductGrid />
     </div>
   );
