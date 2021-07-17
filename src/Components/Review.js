@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import Ranking from "./Ranking";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +34,7 @@ export default function Review() {
           />
         </Grid>
         {/* stars */}
+        <Ranking />
         <Grid item xs={12}>
           <TextField
             id="outlined-textarea"
