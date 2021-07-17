@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,11 +13,18 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: "25ch",
     },
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
   },
   RankingRoot: {
     width: 200,
     display: "flex",
     alignItems: "center",
+  },
+  backHome: {
+    marginTop: 30,
   },
 }));
 
@@ -68,7 +76,7 @@ export default function Review() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <h1>Write A Review ✍ </h1>
+      <h1>✍ Write A Review </h1>
       <div>
         <Grid item xs={12}>
           <TextField
@@ -99,10 +107,16 @@ export default function Review() {
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained">Submit</Button>
-        </Grid>
       </div>
+      <Button variant="contained" className="btn">
+        Submit
+      </Button>
+      <Link className={classes.backHome} to="/">
+        Back to Home 🏠
+      </Link>
+      <Link className={classes.backHome} to="/">
+        Read All Reviews 👀
+      </Link>
     </form>
   );
 }

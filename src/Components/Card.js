@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   name: {
     paddingLeft: 10,
   },
+  link: {
+    textDecoration: "none",
+  },
 }));
 
 export default function ComplexGrid({ name, id }) {
@@ -65,18 +68,18 @@ export default function ComplexGrid({ name, id }) {
                 <Typography variant="body2" style={{ cursor: "pointer" }}>
                   <Link>
                     <Button
+                      className={classes.btn}
                       variant="contained"
                       color="primary"
-                      className={classes.btn}
                     >
                       Read Reviews 👀
                     </Button>
                   </Link>
-                  <Link to={`/reviews/${id}`}>
+                  <Link to={`/reviews/${id}`} className={classes.link}>
                     <Button
+                      className={classes.btn}
                       variant="contained"
                       color="secondary"
-                      className={classes.btn}
                     >
                       Write A Review ✍️
                     </Button>
