@@ -49,6 +49,22 @@
       "body": "Buy it, very good!",
       "productId": "0",
       "id": 4
+    },
+    {
+      "author": "Cindy",
+      "star_rating": 3,
+      "headline": "ok",
+      "body": "just ok, but good price",
+      "productId": "0",
+      "id": 5
+    },
+    {
+      "author": "Tom",
+      "star_rating": 4,
+      "headline": "Good",
+      "body": "good gift for my Mom",
+      "productId": "0",
+      "id": 6
     }
   ]
 }

@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./Components/Home";
-import Review from "./Components/Review";
+import AllReviews from "./Components/AllReviews";
+import ReviewForm from "./Components/ReviewForm";
 
 export default function OliverTakeHome() {
   return (
@@ -13,8 +14,12 @@ export default function OliverTakeHome() {
             <Home />
           </Route>
           <Route
+            path="/write_review/:id"
+            render={(props) => <ReviewForm {...props} />}
+          />
+          <Route
             path="/reviews/:id"
-            render={(props) => <Review {...props} />}
+            render={(props) => <AllReviews {...props} />}
           />
         </Switch>
       </div>
