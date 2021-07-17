@@ -6,8 +6,6 @@ import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 
-import Ranking from "./Ranking";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -102,7 +100,7 @@ export default function Review() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained">Default</Button>
+          <Button variant="contained">Submit</Button>
         </Grid>
       </div>
     </form>

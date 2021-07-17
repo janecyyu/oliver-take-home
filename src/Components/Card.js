@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ComplexGrid({ name }) {
+export default function ComplexGrid({ name, id }) {
   const classes = useStyles();
 
   return (
@@ -72,13 +72,15 @@ export default function ComplexGrid({ name }) {
                       Read Reviews 👀
                     </Button>
                   </Link>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.btn}
-                  >
-                    Write A Review ✍️
-                  </Button>
+                  <Link to={`/reviews/${id}`}>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className={classes.btn}
+                    >
+                      Write A Review ✍️
+                    </Button>
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>
