@@ -6,6 +6,7 @@ import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,14 +42,23 @@ const labels = {
   5: "Excellent+",
 };
 
-export default function Review() {
+export default function Review(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState("Controlled");
+  const [name, setName] = React.useState("");
+  const [title, setTitle] = React.useState("");
+  const [review, setReview] = React.useState("");
   const [rank, setRank] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+  const handleReviewChange = (event) => {
+    setReview(event.target.value);
   };
 
   function HoverRating() {
@@ -77,13 +87,14 @@ export default function Review() {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <h1>✍ Write A Review </h1>
-      <div>
+      <div className="form">
         <Grid item xs={12}>
           <TextField
             id="outlined-textarea"
             label="Your Full Name"
             multiline
             variant="outlined"
+            onChange={handleNameChange}
           />
         </Grid>
         <Grid item xs={12}>
@@ -95,6 +106,7 @@ export default function Review() {
             label="Review Title"
             multiline
             variant="outlined"
+            onChange={handleTitleChange}
           />
         </Grid>
         <Grid item xs={12}>
@@ -105,10 +117,34 @@ export default function Review() {
             rows={4}
             defaultValue=""
             variant="outlined"
+            onChange={handleReviewChange}
           />
         </Grid>
       </div>
-      <Button variant="contained" className="btn">
+      <Button
+        variant="contained"
+        className="btn"
+        onClick={() => {
+          console.log("click");
+          axios
+            .post(
+              `http://localhost:3004/products/${props.match.params.id}/reviews`,
+              {
+                author: name,
+                star_rating: rank,
+                headline: title,
+                body: review,
+                productId: props.match.params.id,
+              }
+            )
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }}
+      >
         Submit
       </Button>
       <Link className={classes.backHome} to="/">
