@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import ReviewCard from "./ReviewCard";
+
 export default function AllReviews(props) {
   const productId = props.match.params.id;
   console.log(productId);
@@ -21,5 +23,17 @@ export default function AllReviews(props) {
     return <div>Loading...</div>;
   }
 
-  return <div>reviews Here {console.log(reviews)}</div>;
+  return (
+    <div>
+      reviews Here
+      {reviews.map((review) => (
+        <ReviewCard
+          name={review.author}
+          title={review.headline}
+          content={review.body}
+          rank={review.star_rating}
+        />
+      ))}
+    </div>
+  );
 }
