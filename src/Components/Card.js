@@ -1,9 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+
+import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,13 +63,15 @@ export default function ComplexGrid({ name }) {
               </Typography>
               <Grid item>
                 <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.btn}
-                  >
-                    Read Reviews 👀
-                  </Button>
+                  <Link>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.btn}
+                    >
+                      Read Reviews 👀
+                    </Button>
+                  </Link>
                   <Button
                     variant="contained"
                     color="secondary"

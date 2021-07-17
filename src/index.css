@@ -13,9 +13,8 @@ code {
 }
 
 .Background {
-  background-image: url("./Styles/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 140% 120%;
+  background-color: rgb(127, 225, 255);
   padding: 3em;
+  height: 100%;
+  width: 100vw;
 }
