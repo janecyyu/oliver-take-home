@@ -4,6 +4,8 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+
 import Ranking from "./Ranking";
 
 const useStyles = makeStyles((theme) => ({
@@ -78,7 +80,9 @@ export default function Review() {
             variant="outlined"
           />
         </Grid>
-        {HoverRating()}
+        <Grid item xs={12}>
+          {HoverRating()}
+        </Grid>
         <Grid item xs={12}>
           <TextField
             id="outlined-textarea"
@@ -96,6 +100,9 @@ export default function Review() {
             defaultValue=""
             variant="outlined"
           />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained">Default</Button>
         </Grid>
       </div>
     </form>
