@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import Rating from "@material-ui/lab/Rating";
+import Box from "@material-ui/core/Box";
 import Ranking from "./Ranking";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,15 +13,58 @@ const useStyles = makeStyles((theme) => ({
       width: "25ch",
     },
   },
+  RankingRoot: {
+    width: 200,
+    display: "flex",
+    alignItems: "center",
+  },
 }));
+
+const labels = {
+  0.5: "Useless",
+  1: "Useless+",
+  1.5: "Poor",
+  2: "Poor+",
+  2.5: "Ok",
+  3: "Ok+",
+  3.5: "Good",
+  4: "Good+",
+  4.5: "Excellent",
+  5: "Excellent+",
+};
 
 export default function Review() {
   const classes = useStyles();
   const [value, setValue] = React.useState("Controlled");
+  const [rank, setRank] = React.useState(2);
+  const [hover, setHover] = React.useState(-1);
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+
+  function HoverRating() {
+    const classes = useStyles();
+
+    return (
+      <div className={classes.RankingRoot}>
+        <Rating
+          name="hover-feedback"
+          value={rank}
+          precision={0.5}
+          onChange={(event, newValue) => {
+            setRank(newValue);
+          }}
+          onChangeActive={(event, newHover) => {
+            setHover(newHover);
+          }}
+        />
+        {rank !== null && (
+          <Box ml={2}>{labels[hover !== -1 ? hover : rank]}</Box>
+        )}
+      </div>
+    );
+  }
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -33,8 +78,7 @@ export default function Review() {
             variant="outlined"
           />
         </Grid>
-        {/* stars */}
-        <Ranking />
+        {HoverRating()}
         <Grid item xs={12}>
           <TextField
             id="outlined-textarea"
