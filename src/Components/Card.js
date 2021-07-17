@@ -66,7 +66,7 @@ export default function ComplexGrid({ name, id }) {
               </Typography>
               <Grid item>
                 <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  <Link to="/reviews/:id">
+                  <Link to={`/reviews/${id}`}>
                     <Button
                       className={classes.btn}
                       variant="contained"

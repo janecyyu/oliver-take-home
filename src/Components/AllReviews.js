@@ -34,6 +34,8 @@ export default function AllReviews(props) {
           rank={review.star_rating}
         />
       ))}
+      <Link to="/">Back to Home 🏠</Link>
+      <Link to={`/write_review/${productId}`}>Write A Review 👀</Link>
     </div>
   );
 }
