@@ -19,10 +19,13 @@ code {
   width: 100vw;
 }
 
-/* .form-display {
-  display: block;
-} */
+.allReviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-/* .form-gone {
-  display: none;
-} */
+.links {
+  margin-top: 20px;
+}

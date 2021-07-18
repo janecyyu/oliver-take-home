@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -44,19 +44,32 @@ const labels = {
 };
 
 export default function ReviewForm(props) {
+  const productId = props.match.params.id;
+
   const classes = useStyles();
-  const [name, setName] = React.useState("");
-  const [title, setTitle] = React.useState("");
-  const [review, setReview] = React.useState("");
-  const [rank, setRank] = React.useState(4);
-  const [hover, setHover] = React.useState(-1);
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [review, setReview] = useState("");
+  const [rank, setRank] = useState(4);
+  const [hover, setHover] = useState(-1);
+  const [product, setProduct] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      const products = await axios("http://localhost:3004/products");
+      setProduct(products.data.filter((p) => p.id == productId)[0]["name"]);
+    }
+    fetchData();
+  }, []);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
+
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
+
   const handleReviewChange = (event) => {
     setReview(event.target.value);
   };
@@ -107,7 +120,8 @@ export default function ReviewForm(props) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <h1>✍ Write A Review </h1>
+      {console.log(product)}
+      <h1>✍ Write A Review for {product}</h1>
       <div className="form">
         <Grid item xs={12}>
           <TextField
@@ -150,10 +164,7 @@ export default function ReviewForm(props) {
       <Link className={classes.backHome} to="/">
         Back to Home 🏠
       </Link>
-      <Link
-        className={classes.backHome}
-        to={`/reviews/${props.match.params.id}`}
-      >
+      <Link className={classes.backHome} to={`/reviews/${productId}`}>
         Read All Reviews 👀
       </Link>
     </form>

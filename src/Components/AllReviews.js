@@ -6,14 +6,16 @@ import ReviewCard from "./ReviewCard";
 
 export default function AllReviews(props) {
   const productId = props.match.params.id;
-  console.log(productId);
   const [reviews, setReviews] = useState();
   const [isLoading, setLoading] = useState(true);
+  const [product, setProduct] = useState("");
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios("http://localhost:3004/reviews");
+      const products = await axios("http://localhost:3004/products");
       setReviews(response.data.filter((r) => r.productId == productId));
+      setProduct(products.data.filter((p) => p.id == productId)[0]["name"]);
       setLoading(false);
     }
     fetchData();
@@ -24,10 +26,11 @@ export default function AllReviews(props) {
   }
 
   return (
-    <div>
-      reviews Here
+    <div className="allReviews">
+      <h1>All reviews for {product}</h1>
       {reviews.map((review) => (
         <ReviewCard
+          key={review.id}
           name={review.author}
           title={review.headline}
           content={review.body}
@@ -35,7 +38,9 @@ export default function AllReviews(props) {
         />
       ))}
       <Link to="/">Back to Home 🏠</Link>
-      <Link to={`/write_review/${productId}`}>Write A Review 👀</Link>
+      <Link className="links" to={`/write_review/${productId}`}>
+        Write A Review 👀
+      </Link>
     </div>
   );
 }
