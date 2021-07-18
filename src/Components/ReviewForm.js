@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import Alert from "@material-ui/lab/Alert";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Rating from "@material-ui/lab/Rating";
@@ -28,6 +29,17 @@ const useStyles = makeStyles((theme) => ({
   backHome: {
     marginTop: 30,
   },
+  gone: {
+    display: "none",
+  },
+  display: {
+    display: "block",
+    width: "30%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+    marginTop: 20,
+  },
 }));
 
 const labels = {
@@ -53,6 +65,7 @@ export default function ReviewForm(props) {
   const [rank, setRank] = useState(4);
   const [hover, setHover] = useState(-1);
   const [product, setProduct] = useState("");
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -93,6 +106,7 @@ export default function ReviewForm(props) {
     setTitle("");
     setReview("");
     setRank(4);
+    setShow(true);
   };
 
   const HoverRating = () => {
@@ -120,7 +134,6 @@ export default function ReviewForm(props) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      {console.log(product)}
       <h1>✍ Write A Review for {product}</h1>
       <div className="form">
         <Grid item xs={12}>
@@ -161,6 +174,13 @@ export default function ReviewForm(props) {
       <Button variant="contained" className="btn" onClick={handleSubmit}>
         Submit
       </Button>
+      {/* <Alert severity="success" className={show ? "display" : "gone"}> */}
+      <Alert
+        severity="success"
+        className={show ? classes.display : classes.gone}
+      >
+        Thank you for your review!
+      </Alert>
       <Link className={classes.backHome} to="/">
         Back to Home 🏠
       </Link>

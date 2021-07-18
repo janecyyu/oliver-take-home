@@ -27,7 +27,7 @@ export default function AllReviews(props) {
 
   return (
     <div className="allReviews">
-      <h1>All reviews for {product}</h1>
+      <h1>🌟 All reviews for {product}</h1>
       {reviews.map((review) => (
         <ReviewCard
           key={review.id}

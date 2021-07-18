@@ -73,6 +73,70 @@
       "body": "Highly recommand!",
       "productId": "1",
       "id": 7
+    },
+    {
+      "author": "Helen",
+      "star_rating": 4,
+      "headline": "Good",
+      "body": "Nice Rug!",
+      "productId": "3",
+      "id": 8
+    },
+    {
+      "author": "Judy",
+      "star_rating": 4,
+      "headline": "Like ",
+      "body": "Beautiful rug for living room!",
+      "productId": "3",
+      "id": 9
+    },
+    {
+      "author": "Susan",
+      "star_rating": 4,
+      "headline": "Nice",
+      "body": "Good product!",
+      "productId": "2",
+      "id": 10
+    },
+    {
+      "author": "Tia",
+      "star_rating": 4,
+      "headline": "Good",
+      "body": "good quality.",
+      "productId": "2",
+      "id": 11
+    },
+    {
+      "author": "Ella",
+      "star_rating": 4,
+      "headline": "Nice",
+      "body": "Nice bed.",
+      "productId": "2",
+      "id": 12
+    },
+    {
+      "author": "John",
+      "star_rating": 3,
+      "headline": "Good",
+      "body": "Good price",
+      "productId": "2",
+      "id": 13
+    },
+    {
+      "author": "Ana",
+      "star_rating": 4,
+      "headline": "Nice",
+      "body": "really nice",
+      "productId": "2",
+      "id": 14
+    },
+    {
+      "author": "Jojo",
+      "star_rating": 4,
+      "headline": "cool",
+      "body": "beautiful bed\n",
+      "productId": "2",
+      "id": 15
     }
   ]
 }
