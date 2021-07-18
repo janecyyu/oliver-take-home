@@ -174,7 +174,6 @@ export default function ReviewForm(props) {
       <Button variant="contained" className="btn" onClick={handleSubmit}>
         Submit
       </Button>
-      {/* <Alert severity="success" className={show ? "display" : "gone"}> */}
       <Alert
         severity="success"
         className={show ? classes.display : classes.gone}
