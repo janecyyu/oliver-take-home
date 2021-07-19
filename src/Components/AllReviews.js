@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 
 export default function AllReviews(props) {
-  const productId = props.match.params.id;
+  const productId = parseInt(props.match.params.id);
   const [reviews, setReviews] = useState();
   const [isLoading, setLoading] = useState(true);
   const [product, setProduct] = useState("");
@@ -14,12 +14,14 @@ export default function AllReviews(props) {
     async function fetchData() {
       const response = await axios("http://localhost:3004/reviews");
       const products = await axios("http://localhost:3004/products");
-      setReviews(response.data.filter((r) => r.productId == productId));
-      setProduct(products.data.filter((p) => p.id == productId)[0]["name"]);
+      setReviews(
+        response.data.filter((r) => parseInt(r.productId) === productId)
+      );
+      setProduct(products.data.filter((p) => p.id === productId)[0]["name"]);
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [productId]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -27,7 +29,12 @@ export default function AllReviews(props) {
 
   return (
     <div className="allReviews">
-      <h1>🌟 All reviews for {product}</h1>
+      <h1>
+        <span role="img" aria-label="all-reviews">
+          🛍️
+        </span>{" "}
+        All reviews for {product}
+      </h1>
       {reviews.map((review) => (
         <ReviewCard
           key={review.id}
@@ -37,9 +44,17 @@ export default function AllReviews(props) {
           rank={review.star_rating}
         />
       ))}
-      <Link to="/">Back to Home 🏠</Link>
+      <Link to="/">
+        Back to Home{" "}
+        <span role="img" aria-label="homepage">
+          🏠
+        </span>
+      </Link>
       <Link className="links" to={`/write_review/${productId}`}>
-        Write A Review 👀
+        Write A Review{" "}
+        <span role="img" aria-label="write-a-review">
+          👀
+        </span>
       </Link>
     </div>
   );

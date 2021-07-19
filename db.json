@@ -137,6 +137,14 @@
       "body": "beautiful bed\n",
       "productId": "2",
       "id": 15
+    },
+    {
+      "author": "Margo",
+      "star_rating": 3,
+      "headline": "Ok",
+      "body": "Just ok, but good price",
+      "productId": "1",
+      "id": 16
     }
   ]
 }

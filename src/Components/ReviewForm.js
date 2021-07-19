@@ -56,7 +56,7 @@ const labels = {
 };
 
 export default function ReviewForm(props) {
-  const productId = props.match.params.id;
+  const productId = parseInt(props.match.params.id);
 
   const classes = useStyles();
   const [name, setName] = useState("");
@@ -70,10 +70,10 @@ export default function ReviewForm(props) {
   useEffect(() => {
     async function fetchData() {
       const products = await axios("http://localhost:3004/products");
-      setProduct(products.data.filter((p) => p.id == productId)[0]["name"]);
+      setProduct(products.data.filter((p) => p.id === productId)[0]["name"]);
     }
     fetchData();
-  }, []);
+  }, [productId]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -134,7 +134,13 @@ export default function ReviewForm(props) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <h1>✍ Write A Review for {product}</h1>
+      <h1>
+        {" "}
+        <span role="img" aria-label="write-a-review">
+          ✍
+        </span>{" "}
+        Write A Review for {product}
+      </h1>
       <div className="form">
         <Grid item xs={12}>
           <TextField
@@ -181,10 +187,16 @@ export default function ReviewForm(props) {
         Thank you for your review!
       </Alert>
       <Link className={classes.backHome} to="/">
-        Back to Home 🏠
+        Back to Home{" "}
+        <span role="img" aria-label="homepage">
+          🏠
+        </span>
       </Link>
       <Link className={classes.backHome} to={`/reviews/${productId}`}>
-        Read All Reviews 👀
+        Read All Reviews{" "}
+        <span role="img" aria-label="write-a-review">
+          👀
+        </span>
       </Link>
     </form>
   );

@@ -72,7 +72,10 @@ export default function ComplexGrid({ name, id }) {
                       variant="contained"
                       color="primary"
                     >
-                      Read Reviews 👀
+                      Read Reviews{" "}
+                      <span role="img" aria-label="write-a-review">
+                        👀
+                      </span>
                     </Button>
                   </Link>
                   <Link to={`/write_review/${id}`} className={classes.link}>
@@ -81,7 +84,10 @@ export default function ComplexGrid({ name, id }) {
                       variant="contained"
                       color="secondary"
                     >
-                      Write A Review ✍️
+                      Write A Review{" "}
+                      <span role="img" aria-label="write-a-review">
+                        ✍
+                      </span>{" "}
                     </Button>
                   </Link>
                 </Typography>
