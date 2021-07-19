@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => ({
 export default function ReviewCard({ name, title, content, rank }) {
   const classes = useStyles();
 
+  const star_rank = (rank) => {
+    let res = [];
+    for (let i = 0; i < rank; i++) {
+      res.push("⭐");
+    }
+    return res.join("");
+  };
+
   return (
     <List className={classes.root}>
       <ListItem alignItems="flex-start">
@@ -28,7 +36,7 @@ export default function ReviewCard({ name, title, content, rank }) {
           <Avatar alt={name} src="#" />
         </ListItemAvatar>
         <ListItemText
-          primary={title}
+          primary={title + " " + star_rank(rank)}
           secondary={
             <React.Fragment>
               <Typography

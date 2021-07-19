@@ -89,12 +89,12 @@ export default function ReviewForm(props) {
 
   const handleSubmit = () => {
     axios
-      .post(`http://localhost:3004/products/${props.match.params.id}/reviews`, {
+      .post(`http://localhost:3004/products/${productId}/reviews`, {
         author: name,
         star_rating: rank,
         headline: title,
         body: review,
-        productId: props.match.params.id,
+        productId: productId,
       })
       .then(function (response) {
         console.log(response);
