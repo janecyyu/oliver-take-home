@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./Components/Home";
-import AllReviews from "./Components/AllReviews";
+import ReviewsGrid from "./Components/ReviewsGrid";
 import ReviewForm from "./Components/ReviewForm";
 
 export default function OliverTakeHome() {
@@ -19,7 +19,7 @@ export default function OliverTakeHome() {
           />
           <Route
             path="/reviews/:id"
-            render={(props) => <AllReviews {...props} />}
+            render={(props) => <ReviewsGrid {...props} />}
           />
         </Switch>
       </div>
