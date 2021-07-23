@@ -43,56 +43,48 @@ export default function ComplexGrid({ name, id }) {
   const classes = useStyles();
 
   return (
+    // Info: Product Image, Name of Product, Two Button: Read reviews and Write reviews
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
-          <Grid item>
-            <Grid className={classes.image}>
-              <img
-                className={classes.img}
-                alt={name}
-                src="https://icon-library.com/images/product-icon-png/product-icon-png-1.jpg"
-              />
-            </Grid>
+          {/* product image */}
+          <Grid className={classes.image}>
+            <img
+              className={classes.img}
+              alt={name}
+              src="https://icon-library.com/images/product-icon-png/product-icon-png-1.jpg"
+            />
           </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Typography
-                gutterBottom
-                variant="subtitle1"
-                className={classes.name}
+          {/* Name of Product */}
+          <Typography gutterBottom variant="subtitle1" className={classes.name}>
+            {name} ⭐
+          </Typography>
+          {/* Two Button: Read reviews and Write reviews */}
+          <Grid item>
+            <Link to={`/reviews/${id}`}>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
               >
-                {name} ⭐
-              </Typography>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  <Link to={`/reviews/${id}`}>
-                    <Button
-                      className={classes.btn}
-                      variant="contained"
-                      color="primary"
-                    >
-                      Read Reviews{" "}
-                      <span role="img" aria-label="write-a-review">
-                        👀
-                      </span>
-                    </Button>
-                  </Link>
-                  <Link to={`/write_review/${id}`} className={classes.link}>
-                    <Button
-                      className={classes.btn}
-                      variant="contained"
-                      color="secondary"
-                    >
-                      Write A Review{" "}
-                      <span role="img" aria-label="write-a-review">
-                        ✍
-                      </span>{" "}
-                    </Button>
-                  </Link>
-                </Typography>
-              </Grid>
-            </Grid>
+                Read Reviews{" "}
+                <span role="img" aria-label="write-a-review">
+                  👀
+                </span>
+              </Button>
+            </Link>
+            <Link to={`/write_review/${id}`} className={classes.link}>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="secondary"
+              >
+                Write A Review{" "}
+                <span role="img" aria-label="write-a-review">
+                  ✍
+                </span>{" "}
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Paper>

@@ -10,6 +10,7 @@ export default function AllReviews(props) {
   const [isLoading, setLoading] = useState(true);
   const [product, setProduct] = useState("");
 
+  // Fetch reviews and product name, use filter method to get the specific element
   useEffect(() => {
     async function fetchData() {
       const response = await axios("http://localhost:3004/reviews");
@@ -28,6 +29,9 @@ export default function AllReviews(props) {
   }
 
   return (
+    // - Title with the product name
+    // - Each Review will create a ReviewCard
+    // - Links to Home and Write_Review page
     <div className="allReviews">
       <h1>
         <span role="img" aria-label="all-reviews">

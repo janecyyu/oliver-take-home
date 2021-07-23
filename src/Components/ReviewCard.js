@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ReviewCard({ name, title, content, rank }) {
   const classes = useStyles();
 
+  // Method: Translate Number to Stars
   const star_rank = (rank) => {
     let res = [];
     for (let i = 0; i < rank; i++) {
@@ -30,6 +31,7 @@ export default function ReviewCard({ name, title, content, rank }) {
   };
 
   return (
+    // Info: User Image, Title, Stars, User Name, Review Content
     <List className={classes.root}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>

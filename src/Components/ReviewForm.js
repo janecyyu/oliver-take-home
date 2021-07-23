@@ -67,6 +67,7 @@ export default function ReviewForm(props) {
   const [product, setProduct] = useState("");
   const [show, setShow] = useState(false);
 
+  // Get the product's name
   useEffect(() => {
     async function fetchData() {
       const products = await axios("http://localhost:3004/products");
@@ -133,6 +134,10 @@ export default function ReviewForm(props) {
   };
 
   return (
+    // - Title with the product name
+    // - From: User Name, Ranking, Title, Review
+    // - Submit Button: POST, Reset the Form, Pup up Box
+    // - Links to Home and Review page
     <form className={classes.root} noValidate autoComplete="off">
       <h1>
         {" "}
