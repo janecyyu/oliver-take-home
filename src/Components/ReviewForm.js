@@ -74,7 +74,7 @@ export default function ReviewForm(props) {
       setProduct(products.data.filter((p) => p.id === productId)[0]["name"]);
     }
     fetchData();
-  }, [productId]);
+  }, []);
 
   const handleNameChange = (event) => {
     setName(event.target.value);

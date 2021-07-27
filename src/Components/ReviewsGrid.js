@@ -9,6 +9,8 @@ export default function AllReviews(props) {
   const [reviews, setReviews] = useState();
   const [isLoading, setLoading] = useState(true);
   const [product, setProduct] = useState("");
+  const [sortedReview, setSortedReview] = useState(reviews);
+  const [toggle, setToggle] = useState(true);
 
   // Fetch reviews and product name, use filter method to get the specific element
   useEffect(() => {
@@ -28,10 +30,19 @@ export default function AllReviews(props) {
     return <div>Loading...</div>;
   }
 
+  const compare = (obj) => {
+    return function (m, n) {
+      var a = m[obj];
+      var b = n[obj];
+      return b - a;
+    };
+  };
+
   return (
     // - Title with the product name
     // - Each Review will create a ReviewCard
     // - Links to Home and Write_Review page
+    // - Filter
     <div className="allReviews">
       <h1>
         <span role="img" aria-label="all-reviews">
@@ -39,15 +50,37 @@ export default function AllReviews(props) {
         </span>{" "}
         All reviews for {product}
       </h1>
-      {reviews.map((review) => (
-        <ReviewCard
-          key={review.id}
-          name={review.author}
-          title={review.headline}
-          content={review.body}
-          rank={review.star_rating}
-        />
-      ))}
+      <div>
+        <button
+          onClick={() => {
+            toggle
+              ? setSortedReview(reviews.sort(compare("star_rating")))
+              : setSortedReview(reviews.reverse());
+            setToggle(!toggle);
+          }}
+        >
+          order by ranking
+        </button>
+      </div>
+      {sortedReview
+        ? sortedReview.map((review) => (
+            <ReviewCard
+              key={review.id}
+              name={review.author}
+              title={review.headline}
+              content={review.body}
+              rank={review.star_rating}
+            />
+          ))
+        : reviews.map((review) => (
+            <ReviewCard
+              key={review.id}
+              name={review.author}
+              title={review.headline}
+              content={review.body}
+              rank={review.star_rating}
+            />
+          ))}
       <Link to="/">
         Back to Home{" "}
         <span role="img" aria-label="homepage">

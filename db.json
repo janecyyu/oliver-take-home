@@ -145,6 +145,22 @@
       "body": "Just ok, but good price",
       "productId": "1",
       "id": 16
+    },
+    {
+      "author": "Mary",
+      "star_rating": 4,
+      "headline": "Good",
+      "body": "Good sofa!",
+      "productId": "0",
+      "id": 17
+    },
+    {
+      "author": "Sophia",
+      "star_rating": 5,
+      "headline": "Good",
+      "body": "Good Sofa!!",
+      "productId": "0",
+      "id": 18
     }
   ]
 }
